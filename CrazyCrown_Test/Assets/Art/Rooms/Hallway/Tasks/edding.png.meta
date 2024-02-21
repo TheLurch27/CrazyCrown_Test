@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f38369499aac23f448db8f566c6eee64
+guid: d38fb5fb347335f4d9b509ee875b8519
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: door_0
+      name: edding_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 0
-        width: 506
-        height: 676
+        x: 641
+        y: 259
+        width: 190
+        height: 919
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,8 +137,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c1aff8383d1a8743aaa1a370e594db1
-      internalID: 496363935
+      spriteID: c0798d500c219554cafcd43a6c82d7d7
+      internalID: 1704627910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edding_1
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 260
+        width: 187
+        height: 957
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1ede5929546b56449f6d06535cf8304
+      internalID: 1882122162
       vertices: []
       indices: 
       edges: []
@@ -154,7 +175,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      door_0: 496363935
+      edding_0: 1704627910
+      edding_1: 1882122162
+      edding_2: -1222878196
+      edding_3: -128860641
+      edding_4: -404121314
+      edding_5: -475522188
+      edding_6: 910446661
+      edding_7: 561495252
+      edding_8: 848529983
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

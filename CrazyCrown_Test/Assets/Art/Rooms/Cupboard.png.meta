@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f38369499aac23f448db8f566c6eee64
+guid: da753119ae8e73247942503c91c92791
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: door_0
+      name: Cupboard_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 0
-        width: 506
-        height: 676
+        x: 333
+        y: 227
+        width: 1224
+        height: 961
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c1aff8383d1a8743aaa1a370e594db1
-      internalID: 496363935
+      spriteID: 9054642d393df4042af50dc73b904619
+      internalID: -1117108049
       vertices: []
       indices: 
       edges: []
@@ -154,7 +154,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      door_0: 496363935
+      Cupboard_0: -1117108049
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
