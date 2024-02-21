@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void StartSalute()
+    public void StartSalute()
     {
         isSaluting = true;
         rb.velocity = Vector2.zero;

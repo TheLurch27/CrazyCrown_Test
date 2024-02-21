@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public AudioSource messageLaterAudio; // Verweisen Sie hier im Editor auf die "Message Later" Audioquelle
 
-    // Update is called once per frame
-    void Update()
+    public void SalutePointReached()
     {
-        
+        // Überprüfen Sie, ob die "Message Later" Audioquelle vorhanden ist
+        if (messageLaterAudio != null)
+        {
+            // Starten Sie die Audioquelle
+            messageLaterAudio.Play();
+        }
+        else
+        {
+            Debug.LogError("Message Later Audio source is not assigned in EventManager!");
+        }
     }
 }
