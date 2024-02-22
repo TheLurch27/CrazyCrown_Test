@@ -604,6 +604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2492504097698204311}
   - component: {fileID: 2252337634315665883}
+  - component: {fileID: 2555914599543425047}
   m_Layer: 0
   m_Name: door -> BalconyRoom
   m_TagString: Untagged
@@ -678,6 +679,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2555914599543425047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3114943596017283981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d291b1644a7eee45a498df63a9c57fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: BalconyRoom
 --- !u!1 &3252034258697956201
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,6 +1115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3152805767647583396}
   - component: {fileID: 2764223089087169965}
+  - component: {fileID: 4119950463923445485}
   m_Layer: 0
   m_Name: door -> ThroneRoom
   m_TagString: Untagged
@@ -1175,6 +1190,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4119950463923445485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7133379839006813331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d291b1644a7eee45a498df63a9c57fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: ThroneRoom
 --- !u!1 &7688203680381454073
 GameObject:
   m_ObjectHideFlags: 0

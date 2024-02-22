@@ -75,14 +75,12 @@ public class PlayerController : MonoBehaviour
         if (direction.magnitude > 0)
         {
             animator.SetBool("isWalking", true);
-            if (direction.x < 0) // Wenn die Richtung nach links zeigt
+            if (direction.x < 0)
             {
-                // Das Sprite spiegeln, wenn nach links gelaufen wird
                 transform.localScale = new Vector3(-1, 1, 1);
             }
-            else if (direction.x > 0) // Wenn die Richtung nach rechts zeigt
+            else if (direction.x > 0)
             {
-                // Das Sprite wieder in die Ausgangsrichtung bringen
                 transform.localScale = new Vector3(1, 1, 1);
             }
         }
