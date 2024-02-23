@@ -604,7 +604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2492504097698204311}
   - component: {fileID: 2252337634315665883}
-  - component: {fileID: 2555914599543425047}
+  - component: {fileID: 4267119151491981127}
   m_Layer: 0
   m_Name: door -> BalconyRoom
   m_TagString: Untagged
@@ -679,7 +679,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2555914599543425047
+--- !u!114 &4267119151491981127
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -692,6 +692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: BalconyRoom
+  interactionDistance: 2
 --- !u!1 &3252034258697956201
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,6 +1204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: ThroneRoom
+  interactionDistance: 2
 --- !u!1 &7688203680381454073
 GameObject:
   m_ObjectHideFlags: 0

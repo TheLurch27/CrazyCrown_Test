@@ -1,22 +1,26 @@
+﻿using UnityEngine.SceneManagement;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class DoorController : MonoBehaviour
 {
     public string sceneToLoad;
+    public float interactionDistance = 2f;
 
-    private bool playerInRange = false;
+    private bool isPlayerNear;
 
-    /// <summary>
-    /// When the player enters the trigger zone, set the playerInRange flag to true.
-    /// </summary>
-    /// <param name="other"></param>
+    private void Update()
+    {
+        if (isPlayerNear && Input.GetKeyDown(KeyCode.E))
+        {
+            SceneManager.LoadScene(sceneToLoad);
+        }
+    }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            playerInRange = true;
-            Debug.Log("Player entered the door trigger zone.");
+            isPlayerNear = true;
         }
     }
 
@@ -24,24 +28,7 @@ public class DoorController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInRange = false;
-            Debug.Log("Player exited the door trigger zone.");
+            isPlayerNear = false;
         }
-    }
-
-    private void Update()
-    {
-        if (playerInRange && Keyboard.current.eKey.wasPressedThisFrame)
-        {
-            LoadScene();
-        }
-    }
-
-    private void LoadScene()
-    {
-        Debug.Log("Loading scene: " + sceneToLoad);
-
-
-        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneToLoad);
     }
 }
