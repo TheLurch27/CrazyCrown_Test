@@ -2,19 +2,33 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
-    public AudioSource messageLaterAudio; // Verweisen Sie hier im Editor auf die "Message Later" Audioquelle
+    public static EventManager instance;
 
-    public void SalutePointReached()
+    private void Awake()
     {
-        // Überprüfen Sie, ob die "Message Later" Audioquelle vorhanden ist
-        if (messageLaterAudio != null)
+        if (instance == null)
         {
-            // Starten Sie die Audioquelle
-            messageLaterAudio.Play();
+            instance = this;
         }
         else
         {
-            Debug.LogError("Message Later Audio source is not assigned in EventManager!");
+            Destroy(gameObject);
         }
+    }
+
+    public delegate void OnPlayerEnterEventArea();
+    public event OnPlayerEnterEventArea PlayerEnterEventArea;
+
+    public delegate void OnPlayerSaluteEvent();
+    public event OnPlayerSaluteEvent PlayerSaluteEvent;
+
+    public void TriggerPlayerEnterEventArea()
+    {
+        PlayerEnterEventArea?.Invoke();
+    }
+
+    public void TriggerPlayerSaluteEvent()
+    {
+        PlayerSaluteEvent?.Invoke();
     }
 }

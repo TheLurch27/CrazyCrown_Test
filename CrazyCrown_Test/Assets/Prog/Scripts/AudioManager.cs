@@ -5,11 +5,6 @@ public class AudioManager : MonoBehaviour
     [Header("Intro")]
     public float delayInSeconds = 0f;
     public AudioClip audioClip;
-
-    [Header("WalkieTalkie Message #01")]
-    public float deslayInSeconds = 0f;
-    public AudioClip audioClip1;
-
     private AudioSource audioSource;
 
     private void Start()

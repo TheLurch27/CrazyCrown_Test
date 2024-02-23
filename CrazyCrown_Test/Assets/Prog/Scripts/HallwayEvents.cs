@@ -1,33 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HallwayEvents : MonoBehaviour
 {
+    private bool taskCompleted = false;
+    private AudioSource audioSource;
 
-    [Header("•••••••Salute Event•••••••")]
-    [Header("")]
-    public GameObject saluteEvent;
-    public Animator animator;
-    public AudioSource audioSource;
-
-    private bool saluteTriggered = false;
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Stop(); // Stellt sicher, dass die Audiospur zu Beginn gestoppt ist
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            animator.SetTrigger("Salute");
-            saluteTriggered = true;
+            Debug.Log("Event Area erreicht");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            Debug.Log("Event Area verlassen");
         }
     }
 
     private void Update()
     {
-        if (saluteTriggered && animator.GetCurrentAnimatorStateInfo(0).IsName("SaluteAnimation"))
+        if (!taskCompleted && (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.Keypad5)))
+        {
+            Debug.Log("Aufgabe bestanden");
+            taskCompleted = true;
+            PlayAudio(); // Spielt die Audiospur ab, wenn die Aufgabe bestanden wurde
+        }
+    }
+
+    private void PlayAudio()
+    {
+        if (audioSource != null)
         {
             audioSource.Play();
-            saluteTriggered = false;
         }
     }
 }

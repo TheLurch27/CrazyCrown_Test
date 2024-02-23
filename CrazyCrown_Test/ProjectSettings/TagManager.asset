@@ -6,6 +6,10 @@ TagManager:
   tags:
   - NPC
   - Wall
+  - Edding
+  - Vomit-Powder
+  - Egg
+  - Crown
   layers:
   - Default
   - TransparentFX
