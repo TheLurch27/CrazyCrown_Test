@@ -3,6 +3,15 @@ using UnityEngine;
 public class InteractAndCollect : MonoBehaviour
 {
     private bool canInteract = false;
+    private Inventory inventory;
+    public AudioClip itemAudioClip; // Die Audiodatei für das eingesammelte Item
+
+    private bool itemCollected = false;
+
+    private void Start()
+    {
+        inventory = FindObjectOfType<Inventory>(); // Finde das Inventory-Skript im Spiel
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -22,7 +31,7 @@ public class InteractAndCollect : MonoBehaviour
 
     private void Update()
     {
-        if (canInteract && Input.GetKeyDown(KeyCode.E))
+        if (canInteract && Input.GetKeyDown(KeyCode.E) && !itemCollected)
         {
             CollectItem();
         }
@@ -37,6 +46,28 @@ public class InteractAndCollect : MonoBehaviour
             // Entferne das GameObject aus der Szene
             Destroy(gameObject);
             Debug.Log("Gegenstand aufgenommen!");
+
+            // Rufe die Methode AddItemToInventory des Inventar-Skripts auf
+            if (inventory != null)
+            {
+                inventory.AddItemToInventory(gameObject.tag);
+            }
+            else
+            {
+                Debug.LogWarning("Inventory-Skript nicht gefunden!");
+            }
+
+            itemCollected = true; // Setze die Variable auf true, um zu verhindern, dass die Audiodatei erneut abgespielt wird
+        }
+
+        // Spiele die Audiodatei für das eingesammelte Item ab, wenn das Item aufgenommen wurde
+        if (itemCollected && itemAudioClip != null)
+        {
+            AudioSource.PlayClipAtPoint(itemAudioClip, transform.position);
+        }
+        else
+        {
+            Debug.LogWarning("Audiodatei nicht zugewiesen oder das Item wurde noch nicht aufgenommen!");
         }
     }
 }

@@ -10,6 +10,10 @@ TagManager:
   - Vomit-Powder
   - Egg
   - Crown
+  - Edding_Slot
+  - VomitPowder_Slot
+  - Egg_Slot
+  - Crown_Slot
   layers:
   - Default
   - TransparentFX
