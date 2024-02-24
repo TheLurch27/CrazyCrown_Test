@@ -8,7 +8,7 @@ public class Inventory : MonoBehaviour
     public Image eggSlotImage;
     public Image vomitPowderSlotImage;
 
-    public AudioSource fullInventoryAudio; // Audiokomponente für volles Inventar
+    public AudioClip fullInventoryClip; // Audiokomponente für volles Inventar
 
     // Variable zur Überprüfung, ob das Inventar voll ist
     private bool inventoryFull = false;
@@ -37,29 +37,31 @@ public class Inventory : MonoBehaviour
             {
                 case "Edding":
                     eddingSlotImage.enabled = true;
+                    itemCollected = true; // Setze den Status des aufgenommenen Edding-Items auf true
                     break;
                 case "Crown":
                     crownSlotImage.enabled = true;
+                    itemCollected = true; // Setze den Status des aufgenommenen Crown-Items auf true
                     break;
                 case "Egg":
                     eggSlotImage.enabled = true;
+                    itemCollected = true; // Setze den Status des aufgenommenen Egg-Items auf true
                     break;
                 case "Vomit-Powder":
                     vomitPowderSlotImage.enabled = true;
+                    itemCollected = true; // Setze den Status des aufgenommenen Vomit-Powder-Items auf true
                     break;
                 default:
                     Debug.LogWarning("Unrecognized item tag: " + itemTag);
                     break;
             }
-
-            itemCollected = true; // Setze den Status des aufgenommenen Items auf true
         }
         else if (inventoryFull)
         {
             Debug.LogWarning("Inventory is full!");
-            if (fullInventoryAudio != null) // Überprüfe, ob die Audiokomponente vorhanden ist
+            if (fullInventoryClip != null) // Überprüfe, ob die Audiokomponente vorhanden ist
             {
-                fullInventoryAudio.Play(); // Spiele die Audioquelle ab, wenn das Inventar voll ist
+                AudioSource.PlayClipAtPoint(fullInventoryClip, transform.position); // Spiele die Audioquelle ab, wenn das Inventar voll ist
             }
         }
     }
@@ -73,6 +75,62 @@ public class Inventory : MonoBehaviour
     // Methode zur Überprüfung, ob das Inventar voll ist
     public bool IsInventoryFull()
     {
-        return inventoryFull;
+        return eddingSlotImage.enabled && crownSlotImage.enabled && eggSlotImage.enabled && vomitPowderSlotImage.enabled;
+    }
+
+    public bool IsItemCollected()
+    {
+        return itemCollected;
+    }
+
+    // Methode zum Zurücksetzen des Inventars
+    public void ResetInventory()
+    {
+        HideAllInventorySlots();
+        itemCollected = false;
+    }
+
+    public void CollectItem(string itemTag)
+    {
+        if (!inventoryFull && !itemCollected) // Überprüfe, ob das Inventar nicht voll ist und kein Item aufgenommen wurde
+        {
+            HideAllInventorySlots();
+
+            switch (itemTag)
+            {
+                case "Edding":
+                    eddingSlotImage.enabled = true;
+                    itemCollected = true; // Setze den Status des aufgenommenen Edding-Items auf true
+                    break;
+                case "Crown":
+                    crownSlotImage.enabled = true;
+                    itemCollected = true; // Setze den Status des aufgenommenen Crown-Items auf true
+                    break;
+                case "Egg":
+                    eggSlotImage.enabled = true;
+                    itemCollected = true; // Setze den Status des aufgenommenen Egg-Items auf true
+                    break;
+                case "Vomit-Powder":
+                    vomitPowderSlotImage.enabled = true;
+                    itemCollected = true; // Setze den Status des aufgenommenen Vomit-Powder-Items auf true
+                    break;
+                default:
+                    Debug.LogWarning("Unrecognized item tag: " + itemTag);
+                    break;
+            }
+        }
+        else if (inventoryFull)
+        {
+            Debug.LogWarning("Inventory is full!");
+            if (fullInventoryClip != null) // Überprüfe, ob die Audiokomponente vorhanden ist
+            {
+                AudioSource.PlayClipAtPoint(fullInventoryClip, transform.position); // Spiele die Audioquelle ab, wenn versucht wird, ein weiteres Item in das volle Inventar zu nehmen
+            }
+        }
+    }
+
+    public bool IsEddingCollected()
+    {
+        return eddingSlotImage.enabled;
     }
 }

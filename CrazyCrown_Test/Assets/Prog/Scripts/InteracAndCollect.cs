@@ -31,7 +31,7 @@ public class InteractAndCollect : MonoBehaviour
 
     private void Update()
     {
-        if (canInteract && Input.GetKeyDown(KeyCode.E) && !itemCollected)
+        if (canInteract && Input.GetKeyDown(KeyCode.E) && !inventory.IsInventoryFull() && !inventory.IsItemCollected())
         {
             CollectItem();
         }

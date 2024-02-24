@@ -44,3 +44,4 @@ Audio:
 • Queen Stimme -> Generiert auf der Seite: https://elevenlabs.io
 • Butler Stimme -> Generiert auf der Seite: https://elevenlabs.io
 • Linnet Knurren -> Aufgenommen von Kevin Moutin
+• Sound Effecte -> https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=91567
