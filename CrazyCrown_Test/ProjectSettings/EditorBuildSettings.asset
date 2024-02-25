@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BalconyRoom.unity
     guid: 7c61d7c1d93ba484bb338a761491b84b
+  - enabled: 1
+    path: Assets/Scenes/SecretRoom.unity
+    guid: ec056f741ad8e3d4c951762ca39389f2
+  - enabled: 1
+    path: Assets/Scenes/Settings.unity
+    guid: f340160ad9c06d3458994835612aa279
   m_configObjects: {}

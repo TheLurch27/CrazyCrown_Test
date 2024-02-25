@@ -14,7 +14,8 @@ TagManager:
   - VomitPowder_Slot
   - Egg_Slot
   - Crown_Slot
-  - Portrait
+  - Portrait_normal
+  - Portrait_smeared
   layers:
   - Default
   - TransparentFX

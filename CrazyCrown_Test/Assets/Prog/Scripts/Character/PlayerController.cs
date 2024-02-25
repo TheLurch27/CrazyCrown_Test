@@ -7,8 +7,12 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private bool isSaluting = false;
+    private bool isSneaking = false;
 
     public float moveSpeed = 5f;
+    public float sneakSpeed = 2f;
+
+    private Vector2 moveInput;
 
     private void Awake()
     {
@@ -20,40 +24,38 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         inputSystem.Enable();
-        inputSystem.Movement.Walk.performed += ctx => MoveCharacter(ctx.ReadValue<Vector2>());
-        inputSystem.Movement.Walk.canceled += ctx => MoveCharacter(Vector2.zero);
+        inputSystem.Movement.Walk.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+        inputSystem.Movement.Walk.canceled += ctx => moveInput = Vector2.zero;
         inputSystem.Salute.Salute.started += ctx => StartSalute();
         inputSystem.Salute.Salute.canceled += ctx => EndSalute();
+        inputSystem.Movement.Sneaking.started += ctx => StartSneak();
+        inputSystem.Movement.Sneaking.canceled += ctx => EndSneak();
     }
 
     private void OnDisable()
     {
         inputSystem.Disable();
-        inputSystem.Movement.Walk.performed -= ctx => MoveCharacter(ctx.ReadValue<Vector2>());
-        inputSystem.Movement.Walk.canceled -= ctx => MoveCharacter(Vector2.zero);
+        inputSystem.Movement.Walk.performed -= ctx => moveInput = ctx.ReadValue<Vector2>();
+        inputSystem.Movement.Walk.canceled -= ctx => moveInput = Vector2.zero;
         inputSystem.Salute.Salute.started -= ctx => StartSalute();
         inputSystem.Salute.Salute.canceled -= ctx => EndSalute();
+        inputSystem.Movement.Sneaking.started -= ctx => StartSneak();
+        inputSystem.Movement.Sneaking.canceled -= ctx => EndSneak();
     }
 
     private void FixedUpdate()
     {
         if (!isSaluting)
         {
-            MoveCharacter(inputSystem.Movement.Walk.ReadValue<Vector2>());
+            MoveCharacter(moveInput);
         }
     }
 
     private void MoveCharacter(Vector2 direction)
     {
-        if (!isSaluting)
-        {
-            rb.velocity = direction * moveSpeed;
-            UpdateAnimation(direction);
-        }
-        else
-        {
-            rb.velocity = Vector2.zero;
-        }
+        float speed = isSneaking ? sneakSpeed : moveSpeed;
+        rb.velocity = direction.normalized * speed; // Richtung beibehalten und die Geschwindigkeit entsprechend setzen
+        UpdateAnimation(direction);
     }
 
     public void StartSalute()
@@ -68,6 +70,18 @@ public class PlayerController : MonoBehaviour
     {
         isSaluting = false;
         animator.SetBool("isSaluting", false);
+    }
+
+    public void StartSneak()
+    {
+        isSneaking = true;
+        animator.SetBool("isSneaking", true);
+    }
+
+    private void EndSneak()
+    {
+        isSneaking = false;
+        animator.SetBool("isSneaking", false);
     }
 
     private void UpdateAnimation(Vector2 direction)
@@ -88,5 +102,16 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("isWalking", false);
         }
+    }
+
+    public bool IsSneaking // Öffentliche Eigenschaft, um den Schleichzustand abzurufen
+    {
+        get { return isSneaking; }
+    }
+
+    // Methode zum Setzen des Schleichzustands
+    public void SetSneaking(bool sneaking)
+    {
+        isSneaking = sneaking;
     }
 }

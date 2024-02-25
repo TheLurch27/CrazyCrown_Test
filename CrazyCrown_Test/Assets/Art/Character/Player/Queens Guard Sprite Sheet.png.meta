@@ -119,6 +119,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -126,12 +152,12 @@ TextureImporter:
       name: Queens Guard Sprite Sheet_0
       rect:
         serializedVersion: 2
-        x: 42
-        y: 1945
-        width: 128
-        height: 564
+        x: 20
+        y: 1942
+        width: 180
+        height: 565
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,12 +173,12 @@ TextureImporter:
       name: Queens Guard Sprite Sheet_1
       rect:
         serializedVersion: 2
-        x: 225
-        y: 1945
-        width: 146
+        x: 208
+        y: 1948
+        width: 180
         height: 565
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,12 +194,12 @@ TextureImporter:
       name: Queens Guard Sprite Sheet_2
       rect:
         serializedVersion: 2
-        x: 535
+        x: 517
         y: 1945
-        width: 137
+        width: 180
         height: 565
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,12 +215,12 @@ TextureImporter:
       name: Queens Guard Sprite Sheet_3
       rect:
         serializedVersion: 2
-        x: 849
+        x: 824
         y: 1945
-        width: 144
+        width: 180
         height: 565
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,12 +236,12 @@ TextureImporter:
       name: Queens Guard Sprite Sheet_4
       rect:
         serializedVersion: 2
-        x: 1189
+        x: 1184
         y: 1946
-        width: 172
-        height: 564
+        width: 180
+        height: 565
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -231,12 +257,12 @@ TextureImporter:
       name: Queens Guard Sprite Sheet_5
       rect:
         serializedVersion: 2
-        x: 1442
+        x: 1429
         y: 1945
-        width: 156
+        width: 180
         height: 565
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -252,12 +278,12 @@ TextureImporter:
       name: Queens Guard Sprite Sheet_6
       rect:
         serializedVersion: 2
-        x: 1763
-        y: 1945
-        width: 127
+        x: 1734
+        y: 1947
+        width: 180
         height: 565
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -273,12 +299,12 @@ TextureImporter:
       name: Queens Guard Sprite Sheet_7
       rect:
         serializedVersion: 2
-        x: 2068
+        x: 2052
         y: 1946
-        width: 137
-        height: 564
+        width: 180
+        height: 565
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -294,12 +320,12 @@ TextureImporter:
       name: Queens Guard Sprite Sheet_8
       rect:
         serializedVersion: 2
-        x: 2406
+        x: 2402
         y: 1946
         width: 180
-        height: 564
+        height: 565
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -317,10 +343,10 @@ TextureImporter:
         serializedVersion: 2
         x: 41
         y: 1319
-        width: 145
+        width: 147
         height: 564
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -341,7 +367,7 @@ TextureImporter:
         width: 147
         height: 564
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -362,7 +388,7 @@ TextureImporter:
         width: 193
         height: 564
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -383,7 +409,7 @@ TextureImporter:
         width: 4
         height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -404,7 +430,7 @@ TextureImporter:
         width: 193
         height: 564
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -425,7 +451,7 @@ TextureImporter:
         width: 193
         height: 564
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -446,7 +472,7 @@ TextureImporter:
         width: 496
         height: 564
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -462,12 +488,12 @@ TextureImporter:
       name: Queens Guard Sprite Sheet_16
       rect:
         serializedVersion: 2
-        x: 602
+        x: 582
         y: 32
-        width: 460
+        width: 496
         height: 564
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

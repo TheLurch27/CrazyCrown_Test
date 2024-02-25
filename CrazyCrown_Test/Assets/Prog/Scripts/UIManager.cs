@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // Methode, die vom Settings Button aufgerufen wird
+    public void LoadSettingsScene()
     {
-        
+        SceneManager.LoadScene("Settings");
     }
 
-    // Update is called once per frame
-    void Update()
+    // Methode, die vom Start Button aufgerufen wird
+    public void LoadDisclaimerScene()
     {
-        
+        SceneManager.LoadScene("Disclaimer");
+    }
+
+    // Methode, die vom Exit Button aufgerufen wird
+    public void ExitGame()
+    {
+        Application.Quit(); // Schlieﬂt die Anwendung
     }
 }

@@ -152,10 +152,10 @@ TextureImporter:
       name: queen angry_0
       rect:
         serializedVersion: 2
-        x: 122
-        y: 53
-        width: 897
-        height: 1311
+        x: 23
+        y: 28
+        width: 1069
+        height: 1364
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,9 +173,9 @@ TextureImporter:
       name: queen angry_1
       rect:
         serializedVersion: 2
-        x: 1227
-        y: 171
-        width: 871
+        x: 1104
+        y: 173
+        width: 1069
         height: 1364
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -194,10 +194,10 @@ TextureImporter:
       name: queen angry_2
       rect:
         serializedVersion: 2
-        x: 2256
-        y: 210
+        x: 2260
+        y: 173
         width: 1069
-        height: 1327
+        height: 1364
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
