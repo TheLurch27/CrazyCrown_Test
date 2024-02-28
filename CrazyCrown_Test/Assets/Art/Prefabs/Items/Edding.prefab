@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5295118425732913854}
   - component: {fileID: 3238440488446077402}
-  - component: {fileID: 7717298476960115591}
   m_Layer: 0
   m_Name: Edding
   m_TagString: Untagged
@@ -85,17 +84,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7717298476960115591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7164417110939867002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c977db7074c170247875d4a52f072e0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemAudioClip: {fileID: 8300000, guid: 503e1f78989a97a478acc2de284485f1, type: 3}
-  inventoryFullAudioClip: {fileID: 8300000, guid: 81165d15c4e8a3f46bf3190fe6820479, type: 3}

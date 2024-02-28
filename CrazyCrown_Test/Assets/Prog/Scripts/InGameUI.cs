@@ -23,8 +23,10 @@ public class InGameUI : MonoBehaviour
     private bool isGameOver = false;
 
     [Header("•••••••••••Slider•••••••••••")]
-    public Slider interactionSlider; // Der Slider für die Interaktion
-    public Transform characterHead; // Die Position des Charakterkopfes
+    public Slider interactionSlider;
+    public Transform characterHead;
+
+    
 
     public void Start()
     {
@@ -146,32 +148,32 @@ public class InGameUI : MonoBehaviour
 
     private void UpdateSliderPosition()
     {
-        if (interactionSlider.gameObject.activeSelf) // Überprüfe, ob der Slider aktiv ist
+        if (interactionSlider.gameObject.activeSelf)
         {
-            // Aktualisiere die Position des Sliders, um dem Charakterkopf zu folgen
+            
             interactionSlider.transform.position = Camera.main.WorldToScreenPoint(characterHead.position + Vector3.up * 1.5f);
         }
     }
 
-    // Methode, um den Slider anzuzeigen und die Interaktionszeit festzulegen
+    
     public void ShowInteractionSlider(float interactionTime)
     {
-        interactionSlider.gameObject.SetActive(true); // Aktiviere den Slider
-        interactionSlider.maxValue = interactionTime; // Setze die maximale Interaktionszeit
+        interactionSlider.gameObject.SetActive(true);
+        interactionSlider.maxValue = interactionTime;
     }
 
-    // Methode, um den Slider auszublenden
+    
     public void HideInteractionSlider()
     {
-        if (interactionSlider != null) // Überprüfe, ob das Slider-Objekt null ist
+        if (interactionSlider != null)
         {
-            interactionSlider.gameObject.SetActive(false); // Deaktiviere den Slider
+            interactionSlider.gameObject.SetActive(false);
         }
     }
 
-    // Methode, um die Interaktionszeit im Slider zu aktualisieren
+    
     public void UpdateInteractionSlider(float remainingTime)
     {
-        interactionSlider.value = interactionSlider.maxValue - remainingTime; // Aktualisiere den Slider, um herunterzulaufen
+        interactionSlider.value = interactionSlider.maxValue - remainingTime;
     }
 }

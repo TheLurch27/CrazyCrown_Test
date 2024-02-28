@@ -4,7 +4,7 @@ public class ButlerController : MonoBehaviour
 {
     public float movementSpeed = 2f;
     public float stoppingDistance = 2f;
-    public float waitTimeBeforeReturning = 5f; // Wartezeit, bevor der Butler zum Startpunkt zurückkehrt
+    public float waitTimeBeforeReturning = 5f;
 
     private Transform playerTransform;
     private Vector3 initialPosition;
@@ -14,12 +14,12 @@ public class ButlerController : MonoBehaviour
     private float waitTimer = 0f;
 
     private SpriteRenderer spriteRenderer;
+    private Animator animator;
 
     private void Start()
     {
-        initialPosition = transform.position; // Speichern Sie die Startposition des Butlers
+        initialPosition = transform.position;
 
-        // Finden Sie den Spieler und starten Sie die Bewegung zum Spieler
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
@@ -31,39 +31,37 @@ public class ButlerController : MonoBehaviour
             Debug.LogError("Player not found!");
         }
 
-        // Holen Sie sich den SpriteRenderer-Komponenten des Butlers
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-
         if (isMovingTowardsPlayer && playerTransform != null)
         {
-            // Berechnen Sie die Richtung zum Spieler
             Vector3 direction = playerTransform.position - transform.position;
-            direction.z = 0f; // Stellen Sie sicher, dass die Bewegung nur in der Ebene bleibt
+            direction.z = 0f;
 
-            // Überprüfen Sie, ob der Butler die gewünschte Entfernung zum Spieler erreicht hat
             if (direction.magnitude > stoppingDistance)
             {
-                // Bewegen Sie den Butler in Richtung des Spielers
                 transform.Translate(direction.normalized * movementSpeed * Time.deltaTime);
 
-                // Flippen des Sprites, wenn der Butler nach links geht
                 spriteRenderer.flipX = direction.x < 0f;
+
+                animator.SetBool("isWalking", true);
             }
             else
             {
-                // Stoppen Sie die Bewegung, wenn die gewünschte Entfernung erreicht ist
                 isMovingTowardsPlayer = false;
                 isWaiting = true;
                 waitTimer = 0f;
+
+                animator.SetBool("isWalking", false);
             }
         }
         else if (isWaiting)
         {
-            // Butler wartet, bis er zurückkehrt
             waitTimer += Time.deltaTime;
             if (waitTimer >= waitTimeBeforeReturning)
             {
@@ -73,34 +71,31 @@ public class ButlerController : MonoBehaviour
         }
         else if (isReturning)
         {
-            // Butler kehrt zum Startpunkt zurück
             Vector3 directionToInitialPosition = initialPosition - transform.position;
-            directionToInitialPosition.z = 0f; // Stellen Sie sicher, dass die Bewegung nur in der Ebene bleibt
+            directionToInitialPosition.z = 0f;
 
-            // Überprüfen Sie, ob der Butler den Startpunkt erreicht hat
-            if (directionToInitialPosition.magnitude > 0.1f) // 0.1f für kleine Toleranz, um Rundungsfehler zu vermeiden
+            if (directionToInitialPosition.magnitude > 0.1f)
             {
-                // Bewegen Sie den Butler zurück zur Startposition
                 transform.Translate(directionToInitialPosition.normalized * movementSpeed * Time.deltaTime);
 
-                // Flippen des Sprites, wenn der Butler nach rechts geht
                 spriteRenderer.flipX = directionToInitialPosition.x < 0f;
+
+                animator.SetBool("isWalking", true);
             }
             else
             {
-                // Bewegung beenden, wenn der Startpunkt erreicht ist
                 isReturning = false;
 
-                // Überprüfen, ob der Butler außerhalb der Kameraansicht liegt
                 if (!IsVisibleByCamera())
                 {
-                    Destroy(gameObject); // Zerstören Sie den Butler, wenn er außerhalb der Kameraansicht liegt
+                    Destroy(gameObject);
                 }
+
+                animator.SetBool("isWalking", false);
             }
         }
     }
 
-    // Überprüfen, ob der Butler von der Kamera sichtbar ist
     private bool IsVisibleByCamera()
     {
         Vector3 viewportPosition = Camera.main.WorldToViewportPoint(transform.position);

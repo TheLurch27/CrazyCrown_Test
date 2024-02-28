@@ -901,6 +901,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3292886699678410721}
+  - component: {fileID: 7807605898372621706}
   m_Layer: 5
   m_Name: inGameUIManager
   m_TagString: Untagged
@@ -927,6 +928,34 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7807605898372621706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3381066294628658611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 054b67be8c5e6514d8387db3debdd227, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 6505414938304040408}
+  fillImage: {fileID: 638831101240315583}
+  Normal: {fileID: 6056013636962966332}
+  Stressed: {fileID: 2309188116221971949}
+  Angry: {fileID: 6496383232577710965}
+  lifeIcons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  goneLifeIcons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  GameOverUI: {fileID: 0}
+  interactionSlider: {fileID: 3352100390471098809}
+  characterHead: {fileID: 0}
 --- !u!1 &3641115194801580734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,7 +1268,6 @@ GameObject:
   - component: {fileID: 2693076130775605598}
   - component: {fileID: 3557463635962885887}
   - component: {fileID: 8843667381199681272}
-  - component: {fileID: 7256927003720323790}
   m_Layer: 5
   m_Name: InGameUI
   m_TagString: Untagged
@@ -1335,34 +1363,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7256927003720323790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4674621668558435569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 054b67be8c5e6514d8387db3debdd227, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 6505414938304040408}
-  fillImage: {fileID: 638831101240315583}
-  Normal: {fileID: 6056013636962966332}
-  Stressed: {fileID: 2309188116221971949}
-  Angry: {fileID: 6496383232577710965}
-  lifeIcons:
-  - {fileID: 3288197405917915910}
-  - {fileID: 1897181812419363113}
-  - {fileID: 3641115194801580734}
-  goneLifeIcons:
-  - {fileID: 1740026607937728284}
-  - {fileID: 4615353920068262777}
-  - {fileID: 7154406638738232156}
-  GameOverUI: {fileID: 0}
-  interactionSlider: {fileID: 0}
-  characterHead: {fileID: 0}
 --- !u!1 &4878478431222009403
 GameObject:
   m_ObjectHideFlags: 0

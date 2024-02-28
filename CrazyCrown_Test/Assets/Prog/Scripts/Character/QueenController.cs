@@ -2,6 +2,9 @@
 
 public class QueenController : MonoBehaviour
 {
+
+    private AudioManager audioManager;
+
     public Animator animator;
     public bool isAngry = false;
 

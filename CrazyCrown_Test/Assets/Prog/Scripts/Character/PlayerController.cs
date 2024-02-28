@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private bool isSaluting = false;
     private bool isSneaking = false;
 
+
     public float moveSpeed = 5f;
     public float sneakSpeed = 2f;
 
@@ -104,12 +105,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public bool IsSneaking // Öffentliche Eigenschaft, um den Schleichzustand abzurufen
+    public bool IsSneaking
     {
         get { return isSneaking; }
     }
 
-    // Methode zum Setzen des Schleichzustands
     public void SetSneaking(bool sneaking)
     {
         isSneaking = sneaking;

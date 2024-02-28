@@ -2,30 +2,58 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    [Header("Intro")]
-    public float delayInSeconds = 0f;
-    public AudioClip audioClip;
-    private AudioSource audioSource;
+    public static AudioManager instance;
 
-    private void Start()
+    [Header("Audio Sources")]
+    public AudioSource musicSource;
+    public AudioSource sfxSource;
+
+    [Header("Audio Clips")]
+    public AudioClip backgroundMusicUI;
+    public AudioClip backgroundGame;
+    public AudioClip DisclaimerVoice;
+
+    private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
+        if (instance == null)
         {
-            audioSource = gameObject.AddComponent<AudioSource>();
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-
-        if (audioClip == null)
+        else
         {
-            return;
+            Destroy(gameObject);
         }
-
-        Invoke("PlayDelayedAudio", delayInSeconds);
     }
 
-    private void PlayDelayedAudio()
+    void Start()
     {
-        audioSource.clip = audioClip;
-        audioSource.Play();
+        PlayBackgroundMusic(backgroundMusicUI);
+    }
+
+    public void PlaySFX(AudioClip clip)
+    {
+        sfxSource.PlayOneShot(clip);
+    }
+
+    public void PlayBackgroundMusic(AudioClip clip)
+    {
+        musicSource.clip = backgroundMusicUI;
+        musicSource.loop = true;
+        musicSource.Play();
+    }
+
+    public void PlaySoundEffect()
+    {
+        musicSource.clip = backgroundGame;
+        musicSource.loop = true;
+        musicSource.Play();
+    }
+
+    public void ChangeMusic(AudioClip newClip)
+    {
+        musicSource.Stop();
+        musicSource.clip = newClip;
+        musicSource.Play();
     }
 }

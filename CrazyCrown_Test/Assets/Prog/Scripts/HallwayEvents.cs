@@ -1,132 +1,50 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class HallwayEvents : MonoBehaviour
 {
-    [Header("Edding Event")]
-    public float interactionTime = 5f; // Zeit, die benötigt wird, um die Interaktion abzuschließen
-    public KeyCode[] interactionKeys = { KeyCode.E, KeyCode.UpArrow, KeyCode.Keypad8 }; // Die Tasten, die die Interaktion auslösen
-    public AudioClip interactionSound; // Sound, der während der Interaktion abgespielt wird
-    public AudioClip completionSound; // Sound, der abgespielt wird, wenn die Interaktion abgeschlossen ist
+    [Header("•••••••••••Salute Event•••••••••••")]
+    [SerializeField] private AudioClip butlerMessage;
+    [SerializeField] private Collider2D triggerPlace;
 
-    [Header("Salute Event")]
-    public Collider2D triggerCollider; // Referenz auf den Collider des Empty Game Objects
-    public KeyCode[] triggerKeys = { KeyCode.S, KeyCode.DownArrow, KeyCode.Keypad5 }; // Die Tasten, die den Audioclip auslösen sollen
-    public AudioClip triggerAudioClip;
-
-    private bool taskCompleted = false;
-    private bool interactionInProgress = false;
-    private float interactionTimer = 0f;
-    private bool playerIsSaluting = false;
-
-    private Inventory inventory;
-    private bool playerInEventArea = false;
-
-    private void Start()
-    {
-        inventory = FindObjectOfType<Inventory>(); // Finde das Inventory-Skript im Spiel
-        interactionTimer = 0f;
-    }
-
-    private void Update()
-    {
-        if (interactionInProgress)
-        {
-            interactionTimer -= Time.deltaTime;
-
-            if (interactionTimer <= 0f)
-            {
-                CompleteTask();
-            }
-            else if (interactionTimer <= interactionTime && interactionSound != null)
-            {
-                AudioSource.PlayClipAtPoint(interactionSound, transform.position);
-            }
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            if (playerIsSaluting)
-            {
-                Debug.Log("Event Abgeschlossen!");
-                playerIsSaluting = false;
-            }
-        }
-    }
+    // public void AssignTrigger(Collider2D collider)
+    // {
+    //     triggerPlace = collider;
+    // }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision == triggerPlace && collision.CompareTag("Player"))
         {
-            Debug.Log("Event Area erreicht");
-        }
-    }
+            Debug.Log("In der Area");
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            // Implement any exit actions here if needed
-        }
-    }
-
-    private void TriggerEvents()
-    {
-        if (playerInEventArea && IsTriggerKeyPressed())
-        {
-            Debug.Log("Event Area erreicht und Taste erkannt.");
-            if (triggerAudioClip != null)
+            if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.Keypad5))
             {
-                AudioSource.PlayClipAtPoint(triggerAudioClip, transform.position);
-            }
-            // Hier die Methode für den Salut-Event aufrufen
-            OnPlayerSaluteEvent();
-        }
-    }
+                Debug.Log("Salute Event ausgelöst!");
 
-    private bool IsTriggerKeyPressed()
-    {
-        foreach (KeyCode key in triggerKeys)
-        {
-            if (Input.GetKeyDown(key))
-            {
-                return true;
+                if (butlerMessage != null)
+                {
+                    // Leer
+                }
+                else
+                {
+                    Debug.LogWarning("Audio Clip nicht zugewiesen!");
+                }
             }
         }
-        return false;
     }
 
-    private void StartInteractionTimer()
+    private void Start()
     {
-        interactionInProgress = true;
-        interactionTimer = interactionTime;
-    }
-
-    private void ResetInteraction()
-    {
-        interactionInProgress = false;
-    }
-
-    private void CompleteTask()
-    {
-        taskCompleted = true;
-        interactionInProgress = false;
-        // Starten der Audioquelle für die Abschlussmeldung
-        if (completionSound != null)
+        Collider2D assignedCollider = GetComponent<Collider2D>();
+        if (assignedCollider != null)
         {
-            AudioSource.PlayClipAtPoint(completionSound, transform.position);
+            // AssignTrigger(assignedCollider);
         }
-    }
-
-    private void OnPlayerEnterEventArea()
-    {
-        // Implement actions to be performed when the player enters the event area
-    }
-
-    private void OnPlayerSaluteEvent()
-    {
-        playerIsSaluting = true;
+        else
+        {
+            Debug.LogWarning("Collider nicht gefunden! Bitte überprüfe, ob ein Collider dem GameObject zugewiesen ist.");
+        }
     }
 }
+
